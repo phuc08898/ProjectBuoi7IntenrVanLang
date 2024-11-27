@@ -78,6 +78,6 @@ Web API này cung cấp các chức năng xác thực người dùng, quản lý
 *** GET/7078/api/Article/export xuất các thông tin người dùng về file execl
 ![image](https://github.com/user-attachments/assets/28320e8f-4619-4a30-a52c-a17f891552ee)
 
-*** api/Article/export-word/1 xuất thông tin user ra file word 
+*** api/Article/export-word/1 xuất thông tin bài viết ra file word 
 ![image](https://github.com/user-attachments/assets/10ec6891-11bb-4c4d-98fb-19c8be4fe147)
 
