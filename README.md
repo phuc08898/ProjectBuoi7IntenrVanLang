@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/db8c1b79-55bb-4bc8-83b2-58512789fc53)![image](https://github.com/user-attachments/assets/000c6fcc-edb2-4ecd-b5c2-1321c0f3f7ab)Initialized empty Git repository in C:/Users/Admin/Source/Repos/webapi/.git/
+
 # Tài liệu Web API
 
 ## Tổng quan
