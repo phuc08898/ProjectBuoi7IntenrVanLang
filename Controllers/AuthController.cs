@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
+using ProjectBuoi7.Data;
 using ProjectBuoi7.Models;
 
 namespace ProjectBuoi7.Controllers
@@ -9,27 +11,30 @@ namespace ProjectBuoi7.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        // Danh sách user giả lập
-        private static List<User> users = new List<User>
+        private readonly SQLDbcontext _context;
+
+        // Inject DbContext vào controller
+        public AuthController(SQLDbcontext context)
         {
-            new User { Id = 1, Username = "admin", Password = "admin123", Role = "Admin" },
-            new User { Id = 2, Username = "user", Password = "user123", Role = "User" }
-        };
+            _context = context;
+        }
 
         // Bộ nhớ tạm để lưu token đăng nhập
         private static Dictionary<int, string> loggedInUsers = new Dictionary<int, string>();
 
         // Đăng nhập
         [HttpPost("login")]
-        public IActionResult Login([FromBody] User loginUser)
+        public async Task<IActionResult> Login([FromBody] User loginUser)
         {
             if (loginUser == null)
             {
                 return BadRequest("Invalid input.");
             }
 
-            // Kiểm tra user
-            var user = users.FirstOrDefault(u => u.Username == loginUser.Username && u.Password == loginUser.Password);
+            // Kiểm tra user trong cơ sở dữ liệu
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Username == loginUser.Username && u.Password == loginUser.Password);
+
             if (user == null)
             {
                 return Unauthorized("Invalid username or password.");
@@ -56,6 +61,33 @@ namespace ProjectBuoi7.Controllers
                 token = token
             });
         }
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] User newUser)
+        {
+            if (newUser == null || string.IsNullOrEmpty(newUser.Username) || string.IsNullOrEmpty(newUser.Password))
+            {
+                return BadRequest("Username and password are required.");
+            }
+
+            // Kiểm tra xem username đã tồn tại chưa
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == newUser.Username);
+            if (existingUser != null)
+            {
+                return Conflict("Username is already taken.");
+            }
+
+            // Thêm user mới vào cơ sở dữ liệu
+            _context.Users.Add(newUser);
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                message = "User registered successfully.",
+                userId = newUser.Id,
+                username = newUser.Username
+            });
+        }
+
 
         // Đăng xuất
         [HttpPost("logout")]
