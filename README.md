@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/000c6fcc-edb2-4ecd-b5c2-1321c0f3f7ab)Initialized empty Git repository in C:/Users/Admin/Source/Repos/webapi/.git/
+![image](https://github.com/user-attachments/assets/db8c1b79-55bb-4bc8-83b2-58512789fc53)![image](https://github.com/user-attachments/assets/000c6fcc-edb2-4ecd-b5c2-1321c0f3f7ab)Initialized empty Git repository in C:/Users/Admin/Source/Repos/webapi/.git/
 # Tài liệu Web API
 
 ## Tổng quan
@@ -73,11 +73,15 @@ Web API này cung cấp các chức năng xác thực người dùng, quản lý
 - **Tài liệu**: [Tên của bạn]
 
 ** POST/api/Article/import nhập thông tin từ file execl 
-![image](https://github.com/user-attachments/assets/f1b232e6-dfc2-4bed-a6cf-ca3f52afa8c0)
+![image](https://github.com/user-attachments/assets/011ccdc5-bd10-485d-a28d-75d5d379a6bf)
 
-*** GET/7078/api/Article/export xuất các thông tin người dùng về file execl
-![image](https://github.com/user-attachments/assets/28320e8f-4619-4a30-a52c-a17f891552ee)
+
+*** GET/7078/api/Article/export xuất các thông tin bài viết về file execl
+![image](https://github.com/user-attachments/assets/7641db12-80af-46f9-bae7-db1e54e2a77e)
+
 
 *** api/Article/export-word/1 xuất thông tin bài viết ra file word 
-![image](https://github.com/user-attachments/assets/10ec6891-11bb-4c4d-98fb-19c8be4fe147)
+![image](https://github.com/user-attachments/assets/a3136f4c-8395-4bea-874a-dd78df12afb6)
+
+
 
