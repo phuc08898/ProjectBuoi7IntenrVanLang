@@ -1,0 +1,6 @@
+@miniexecl_HostAddress = http://localhost:5096
+
+GET {{miniexecl_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
