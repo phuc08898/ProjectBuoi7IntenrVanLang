@@ -79,9 +79,41 @@ Web API này cung cấp các chức năng xác thực người dùng, quản lý
 *** GET/7078/api/Article/export xuất các thông tin bài viết về file execl
 ![image](https://github.com/user-attachments/assets/7641db12-80af-46f9-bae7-db1e54e2a77e)
 
-
 *** api/Article/export-word/1 xuất thông tin bài viết ra file word 
 ![image](https://github.com/user-attachments/assets/a3136f4c-8395-4bea-874a-dd78df12afb6)
+
+
+
+## Giao diện phía FrontEnd 
+## Trước khi chạy FrontEnd phải đảm bảo rằng sever phía backend của bạn đang chạy bằng cách chạy file program của phía backend khi chạy sẽ lên giao diện này. 
+![image](https://github.com/user-attachments/assets/1e9298b4-46e1-42d9-afef-b9752aaec37f)
+## sau khi chạy sever về phía FE bạn cần cài đặt lại môi trường nếu chưa có  lệnh npm install sau khi cài đặt thư viện bạn chạy npm run dev để có thể chạy lên giao diện 
+** Chạy thư mục views/user để chạy giao diện 
+** View login người dùng nhập tên tài khoản, mậu khẩu và chọn phân quyền của mình. 
+## view FE gọi API login phía BE
+** Ở view đăng nhập người dùng cần nhập các trường như tên đăng nhập, mật khẩu, vai trò của mình
+** về phía FE khi người dùng nhấn đăng nhập FE sẽ gửi một phương thức là POST với địa chỉ API phía BE cung cấp cho
+![image](https://github.com/user-attachments/assets/90ca73e1-7d7f-4b6a-98d6-e9e623dc28ae)
+
+## view FE gọi API register phía BE
+** Ở view đăng kí tài khoản người dùng cần nhập vào các trường như tên tài khoản, mật khẩu và vai trò của người dùng.sau khi nhập xong người dùng cần click vào tôi đồng ý với điều khoản thì mới được đăng kí tài khoản
+** Về phía FE khi người dùng điền các trường từ forn đăng kí, khi người dùng nhập đăng kí sẽ gửi một phương thức là POST với địa chỉ mà BE cung cấp  
+![image](https://github.com/user-attachments/assets/dddf9d12-5162-4278-ab11-4b9fc5b2b116)
+
+![image](https://github.com/user-attachments/assets/ad42b4b4-3ade-4bb8-8c69-521e946d8c39)
+## Hình ảnh thông tin người dùng đăng kí 
+![image](https://github.com/user-attachments/assets/774cff66-3bc2-43de-83a3-7103f43c624a)
+
+## Hình ảnh dữ liệu đăng kí được cập nhật dưới SQL 
+![image](https://github.com/user-attachments/assets/a217d561-82c2-49ff-8369-bf220c9c2002)
+
+## Hình ảnh gửi đi từ network 
+![image](https://github.com/user-attachments/assets/3d339060-bfe7-4a70-8744-93b329132c8b)
+![image](https://github.com/user-attachments/assets/3ec17a74-cf56-4c96-8372-16765787d6cf)
+
+
+
+
 
 
 
