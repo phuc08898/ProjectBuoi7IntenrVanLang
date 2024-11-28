@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProjectBuoi7.Data;
 using ProjectBuoi7.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProjectBuoi7.Controllers
 {
@@ -64,9 +65,16 @@ namespace ProjectBuoi7.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] User newUser)
         {
+            // Kiểm tra nếu dữ liệu đầu vào không hợp lệ
             if (newUser == null || string.IsNullOrEmpty(newUser.Username) || string.IsNullOrEmpty(newUser.Password))
             {
                 return BadRequest("Username and password are required.");
+            }
+
+            // Kiểm tra độ dài của mật khẩu (ví dụ: ít nhất 6 ký tự)
+            if (newUser.Password.Length < 6)
+            {
+                return BadRequest("Password must be at least 6 characters.");
             }
 
             // Kiểm tra xem username đã tồn tại chưa
@@ -76,10 +84,14 @@ namespace ProjectBuoi7.Controllers
                 return Conflict("Username is already taken.");
             }
 
+            // Không mã hóa mật khẩu, lưu trực tiếp vào cơ sở dữ liệu
+            // newUser.Password = passwordHasher.HashPassword(newUser, newUser.Password); // Bỏ qua dòng này
+
             // Thêm user mới vào cơ sở dữ liệu
             _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
 
+            // Trả về thông tin người dùng mới sau khi đăng ký thành công
             return Ok(new
             {
                 message = "User registered successfully.",
@@ -87,6 +99,7 @@ namespace ProjectBuoi7.Controllers
                 username = newUser.Username
             });
         }
+
 
 
         // Đăng xuất
